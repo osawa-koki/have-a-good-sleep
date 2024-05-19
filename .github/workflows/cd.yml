@@ -1,0 +1,26 @@
+name: exec
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "*/10 13-14 * * *"
+
+jobs:
+  exec:
+    runs-on: ubuntu-22.04
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.11"
+    - name: Install poetry
+      run: |
+        curl -sSL https://install.python-poetry.org | python3 -
+        echo "$HOME/.local/bin" >> $GITHUB_PATH
+    - name: Install dependencies
+      run: poetry install --no-root
+    - name: Chmod
+      run: chmod +x ./entrypoint.sh
+    - name: Run
+      run: ./entrypoint.sh
