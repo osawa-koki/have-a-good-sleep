@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "have-a-good-sleep"
+version = "1.0.0"
+description = "🕴🕴🕴 SwitchBotのAPIを利用して、22時になったら徐々にライトを暗くする！"
+authors = ["osawa-koki <koki@osawa.dev>"]
+license = "Apache-2.0"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
